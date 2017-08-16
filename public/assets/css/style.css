@@ -1,0 +1,38 @@
+.footer {
+    /*position: absolute;*/
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    /*height: 60px;*/
+    background-color: #f5f5f5;
+
+}
+
+.container .text-muted {
+    margin: 20px 0;
+}
+/*.margin{*/
+    /*margin-top: 100px;*/
+
+/*}*/
+@media screen and (max-width: 480px) {
+    .image{
+        /*display: none;*/
+        width: 200px;
+        height: 100px;
+    }
+}
+
+/*@media screen and (max-device-height: 450px){
+    .footer{
+        position: sticky;
+
+    }
+}*/
+.hr-divider{
+    box-shadow: 0 5px 15px 2px orange;
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
