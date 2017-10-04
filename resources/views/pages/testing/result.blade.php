@@ -2,10 +2,10 @@
 @section('content')
 
     <div class="container col-md-12" align="center" style="margin-top: 120px">
-@foreach($tests as $test)
+        @foreach($videos as $video)
 
-    <li><a href="/help/{{$test->id}}"><h2>{{$test->title}}</h2></a></li>
-@endforeach
+            <li><a href="/help/{{$video->id}}"><h2>{{$video->title}}</h2></a></li>
+        @endforeach
     </div>
 
 

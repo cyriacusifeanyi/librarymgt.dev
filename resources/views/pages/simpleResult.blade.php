@@ -5,58 +5,32 @@
     <title>Library | Search</title>
 
     {{--<title>8 Search Results - Keywords(computer) - Author name(ifeanyi) - ScienceDirect</title>--}}
-
 @endsection
+@section('page_style')
+    {{Html::script('assets/js/script.js')}}
+@endsection
+
+
 
 @section('content')
     <div class="container" align="center" style="margin-top: 55px">
         {{--<div class="col-md-12">--}}
         {{--<div class="container">--}}
         {{--<div class="col-md-2" ></div>--}}
-        <div class="col-md-12" >
-            <form action="#" method="get">
-                <div class="input-group">
-                    {{--$search =  $request->input('search');--}}
 
-                    <input type="text" maxlength="100" placeholder="L!brary Search" value="{{$search}}" class="form-control " name="search"  >
-                    <div class="input-group-addon">
-                        <span class="glyphicon glyphicon-search"></span>
-                    </div>
 
-                </div>
-                <div class="form-group">
-                    <label class="checkbox-inline">
-                        <input name="opt1" type="checkbox" checked="{{$opt1}}" {{--checked--}}>All
-                    </label>
-                    <label class="checkbox-inline">
-                        <input name="opt2" type="checkbox" checked="{{$opt2}}">Books
-                    </label>
-                    <label class="checkbox-inline">
-                        <input name="opt3" type="checkbox" checked="{{$opt3}}">Video
-                    </label>
-                    <label class="checkbox-inline">
-                        <input name="opt4" type="checkbox" checked="{{$opt4}}">Music
-                    </label>
-                    <label class="checkbox-inline">
-                        <input name="opt5" type="checkbox" checked="{{$opt5}}">Others
-                    </label>
-                </div>
-                <div class="form-group">
-                    <input type="submit" class="btn btn-primary" value="Search">
-                    <a target="_blank" href="{{url('advancesearch')}}">Advance Search<span style="color: orange">&nbsp;<i class="glyphicon glyphicon-new-window"></i></span></a>
-                </div>
 
-            </form>
-        </div>
+        @include('include.simplesearch')
+
         {{--<div class="col-md-2" ></div>--}}
 
         {{--</div>--}}
-    {{--</div>--}}
+        {{--</div>--}}
 
     </div>
     <div class="container " align="left" style="margin-top: 55px;min-height: 350px ">
         <div class="col-md-12">
-            <div class="col-md-3 col-sm-3 col-xs-3 {{--visible-lg-block visible-md-block visible-sm-block visible-xs-block--}}  ">
+            <div class="col-md-3 col-sm-3 {{--col-xs-3--}} hidden-xs {{--visible-lg-block visible-md-block visible-sm-block visible-xs-block--}}  ">
                 <h3>lorem results</h3>
                 <h3>Filter by:</h3>
                 <h4>Student Class</h4>
@@ -95,21 +69,69 @@
 
             </div>
 
-            <div class="col-md-8 col-sm-8 col-xs-8 {{--visible-lg-block visible-md-block visible-sm-block visible-xs-block--}} ">
+            <div class="col-md-8 col-sm-8 col-xs-12 {{--visible-lg-block visible-md-block visible-sm-block visible-xs-block--}} ">
                 sorted by relevance&nbsp;|&nbsp;<a href="">date</a>
                 <hr>
 
-            <a href="#">New General Mathematics</a><br>
-            <span style="color: orange">Free reading</span>&nbsp;|&nbsp;<em>Mathematics</em><br>
-            Ifeoluwa Adeola-dada, Dr. Chuks Harvey <br>
-            <a href="#"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>
-                Download PDF (25 Mb)</a>
+
+
+                {{--<a href="{{ route('preview') }}">New General Mathematics</a><br>--}}
+                {{--<span style="color: orange">Free reading</span>&nbsp;|&nbsp;<em>Mathematics</em><br>--}}
+                {{--Ifeoluwa Adeola-dada, Dr. Chuks Harvey <br>--}}
+                {{--<a href="#"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>--}}
+                {{--Download PDF (25 Mb)</a>--}}
+
+
+
+{{--                {{$video2[0]->title}}--}}
+                @forelse($resources as $resource)
+
+                    <img src="" width="100px" height="250px" alt="sdfgh" id="searchLoop" class="img-thumbnail">
+
+                    <a href="{{ route('preview') }}">{{$resource->title}}</a><br>
+                    <span style="color: orange">Free reading</span>&nbsp;|&nbsp;<em>Mathematics{{$resource->subject}}</em><br>
+                    {{$resource->author}}<br>
+
+                    <a href="" data-toggle="modal" data-target="#myModal" data-id="{{$resource->id}}">preview</a>
+
+
+                    <a href="#"><span class="glyphicon glyphicon-book{{$resource->type}}" aria-hidden="true"></span>
+                        Download PDF{{$resource->format}} ({{$resource->size}} Mb)</a>
+                    <hr>
+                @empty
+                    <div class="alert alert-info">
+                        <p><h4>oops :( no Record found</h4></p>
+                        <p>Your Search - <em style="font-weight: bold; font-style: normal;">{{$pageData['searchBox']}}</em>  - did not match any documents.</p>
+
+                        <p>Suggestions:</p>
+
+                        <ul>
+                            <li>Make sure all words are spelled correctly.</li>
+                            <li>Try different keywords.</li>
+                            <li>Try more general keywords.</li>
+                            <li>Try fewer keywords.</li>
+                            <li>Try checking
+                                <label class="checkbox-inline">
+                                    <input name="opt1" type="checkbox" checked disabled><em>All</em>
+                                </label>
+                                to broaden search space</li>
+                        </ul>
+
+                    </div>
+
+
+                @endforelse
+
+
+            </div>
 
         </div>
-
     </div>
-</div>
 
+    <button type="button" class="btn btn-link btn-lg" data-toggle="modal" data-target="#myModal">
+        preview
+    </button>
+    @include('include.previewModal')
 
 
 

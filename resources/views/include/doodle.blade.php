@@ -16,8 +16,8 @@
                 width: 24px;
             }
             @-webkit-keyframes animPos {
-                0% { -webkit-transform: rotate(90deg) translate(-98%, 0); }
-                100% { -webkit-transform: rotate(90deg) translate(98%, 0); }
+                0% { transform: rotate(90deg) translate(-98%, 0); }
+                100% { transform: rotate(90deg) translate(98%, 0); }
             }
             @-webkit-keyframes animZOrder {
                 0% { z-index: 100; }
@@ -33,17 +33,17 @@
                 width: 37.5%;
             }
             .running .outer {
-                -webkit-animation: animZOrder 3520ms linear infinite;
+                animation: animZOrder 3520ms linear infinite;
             }
             .inner {
-                -webkit-transform: rotate(90deg) translate(-98%, 0);
+                transform: rotate(90deg) translate(-98%, 0);
                 border-radius: 50%;
                 height: 100%;
                 position: absolute;
                 width: 100%;
             }
             .running .inner {
-                -webkit-animation: animPos 880ms cubic-bezier(0.445, 0.05, 0.55, 0.95)
+                animation: animPos 880ms cubic-bezier(0.445, 0.05, 0.55, 0.95)
                 infinite alternate;
             }
         </style>

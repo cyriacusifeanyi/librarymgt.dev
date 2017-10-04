@@ -9,8 +9,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{url('/')}}">
-                L<span style="color: orange">!</span>brary @include('include.doodle')
+            <a class="navbar-brand" href="{{--{{url('/')}}--}}{{ route('home') }}">
+                L<span style="color: orange">!</span>brary @include('include.doodle'){{--due to destractions--}}
             </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -72,15 +72,16 @@
                 </li>--}}
                 {{--if user exist--}}
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> My name</a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> My name {{--{{$user->name}}--}}</a>
                     <ul class="dropdown-menu">
                         <li><a href="#">History</a></li>
-                        <li><a href="#">Favourite</a></li>
+                        <li><a href="{{url('favourite/')}}">Favourite</a></li>
+                        <li><a href="{{--{{url('create')}}--}}{{ route('create') }}"><span style="color: orange">&nbsp;<i class="glyphicon glyphicon-upload"></i></span> Upload</a></li>
                         <li><a href="#{{--evernote.com--}}">Notepad <span style="color: orange">&nbsp;<i class="glyphicon glyphicon-new-window"></i></span></a></li>
                         <li role="separator" class="divider"></li>
                         {{--<li class="dropdown-header">External links</li>--}}
-                        <li ><a href="#">Account Settings</a></li>
-                        <li ><a href="#">Sign out </a></li>
+                        <li ><a href="{{url('admin/profile')}}">Account Settings</a></li>
+                        <li ><a href="{{url('signout')}}">Sign out </a></li>
                     </ul>
                 </li>
                 {{--end User account--}}
