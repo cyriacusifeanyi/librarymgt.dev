@@ -42,7 +42,7 @@
 
 
     </div>
-    <footer  class="footer">
+    <footer  class="footer navbar-fixed-bottom">
         @include('include.footerNavLib')
 {{--        @include('include.footerNavRc')--}}
     </footer>

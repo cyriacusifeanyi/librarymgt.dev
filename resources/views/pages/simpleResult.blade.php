@@ -83,7 +83,7 @@
 
 
 
-{{--                {{$video2[0]->title}}--}}
+                {{--                {{$video2[0]->title}}--}}
                 @forelse($resources as $resource)
 
                     <img src="" width="100px" height="250px" alt="sdfgh" id="searchLoop" class="img-thumbnail">
@@ -98,6 +98,7 @@
                     <a href="#"><span class="glyphicon glyphicon-book{{$resource->type}}" aria-hidden="true"></span>
                         Download PDF{{$resource->format}} ({{$resource->size}} Mb)</a>
                     <hr>
+
                 @empty
                     <div class="alert alert-info">
                         <p><h4>oops :( no Record found</h4></p>

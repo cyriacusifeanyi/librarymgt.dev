@@ -41,7 +41,7 @@
                     <select name="all00" id="" class="form-control-static ">
                         {{--<option name="key" value="any" id="scope_anyall1" selected>Keywords anywhere</option>--}}
                         <option value="title" id="scope_titleall1" selected>Title</option>
-                        <option value="creator" id="scope_creatorall1">Author / creator</option>
+                        <option value="author" id="scope_authorall1">Author / creator</option>
                         <option value="subject" id="scope_suball1">Subject</option>
                         {{--<option value="series" id="scope_lsr38all1">Series</option>--}}
                         <option value="genre" id="scope_lsr30all1">genre</option>
@@ -56,13 +56,13 @@
                         <option value="startsWith" id="">starts with</option>
                     </select>
 
-                    <input {{--type="text"--}} name="allSearch0" id="" class="form-control-static" required>
+                    <input name="allSearch[]" id="" class="form-control-static" required>
 
                     <select name="all02" id="" class="form-control-static">
 
                         <option value="and" id="" selected>AND</option>
                         <option value="or" id="">OR</option>
-                        <option value="not" id="">NOT</option>
+                        <option value="NOT LIKE" id="">NOT</option>
                     </select>
                 </div>
 
@@ -70,7 +70,7 @@
                     <select name="all10" id="" class="form-control-static">
                         {{--<option value="any" id="scope_anyall1" >Keywords anywhere</option>--}}
                         <option value="title" id="scope_titleall1" >Title</option>
-                        <option value="creator" id="scope_creatorall1" selected>Author / creator</option>
+                        <option value="author" id="scope_authorall1" selected>Author / creator</option>
                         <option value="subject" id="scope_suball1">Subject</option>
                         {{--<option value="series" id="scope_lsr38all1">Series</option>--}}
                         <option value="genre" id="scope_lsr30all1">genre</option>
@@ -86,13 +86,13 @@
 
                     </select>
 
-                    <input name="allSearch1" id="" class="form-control-static">
+                    <input name="allSearch[]" id="" class="form-control-static">
 
                     <select name="all12" id="" class="form-control-static">
 
                         <option value="and" id="" selected>AND</option>
                         <option value="or" id="">OR</option>
-                        <option value="not" id="">NOT</option>
+                        <option value="NOT LIKE" id="">NOT</option>
                     </select>
                 </div>
 
@@ -100,7 +100,7 @@
                     <select name="all20" id="" class="form-control-static">
                         {{--<option value="any" id="scope_anyall1">Keywords anywhere</option>--}}
                         <option value="title" id="scope_titleall1">Title</option>
-                        <option value="creator" id="scope_creatorall1" >Author / creator</option>
+                        <option value="author" id="scope_authorall1" >Author / creator</option>
                         <option value="subject" id="scope_suball1" selected>Subject</option>
                         {{--<option value="series" id="scope_lsr38all1">Series</option>--}}
                         <option value="genre" id="scope_lsr30all1">genre</option>
@@ -116,13 +116,13 @@
 
                     </select>
 
-                    <input name="allSearch2" id="" class="form-control-static">
+                    <input name="allSearch[]" id="" class="form-control-static">
 
                     <select name="all22" id="" class="form-control-static">
 
                         <option value="and" id="" selected>AND</option>
                         <option value="or" id="">OR</option>
-                        <option value="not" id="">NOT</option>
+                        <option value="NOT LIKE" id="">NOT</option>
                     </select>
                 </div>
 
@@ -130,7 +130,7 @@
                     <select name="all30" id="" class="form-control-static">
                         {{--<option value="any" id="scope_anyall1" selected>Keywords anywhere</option>--}}
                         <option value="title" id="scope_titleall1">Title</option>
-                        <option value="creator" id="scope_creatorall1">Author / creator</option>
+                        <option value="author" id="scope_authorall1">Author / creator</option>
                         <option value="subject" id="scope_suball1" selected>Subject</option>
                         {{--<option value="series" id="scope_lsr38all1">Series</option>--}}
                         <option value="genre" id="scope_lsr30all1" selected>genre</option>
@@ -146,12 +146,12 @@
 
                     </select>
 
-                    <input name="allSearch3" id="" class="form-control-static">
+                    <input name="allSearch[]" id="" class="form-control-static">
 
                     {{--<select name="all32" id="" class="form-control-static">--}}
                         {{--<option value="and" id="" selected>AND</option>--}}
                         {{--<option value="or" id="">OR</option>--}}
-                        {{--<option value="not" id="">NOT</option>--}}
+                        {{--<option value="NOT LIKE" id="">NOT</option>--}}
                     {{--</select>--}}
                 </div>
                 <button class="btn btn-default btn-primary">
@@ -171,7 +171,7 @@
                 <div class="{{--form-group--}}">
                     <select name="book00" id="" class="form-control-static ">
                         <option value="title" id="scope_titleall1" selected>Title</option>
-                        <option value="creator" id="scope_creatorall1">Author / creator</option>
+                        <option value="author" id="scope_authorall1">Author / creator</option>
                         <option value="subject" id="scope_suball1">Subject</option>
                         <option value="series" id="scope_lsr38all1">Series</option>
                         <option value="genre" id="scope_lsr30all1">genre</option>
@@ -187,20 +187,20 @@
 
                     </select>
 
-                    <input name="bookSearch0" id="" class="form-control-static" required>
+                    <input name="bookSearch[]" id="" class="form-control-static" required>
 
                     <select name="book02" id="" class="form-control-static">
 
                         <option value="and" id="" selected>AND</option>
                         <option value="or" id="">OR</option>
-                        <option value="not" id="">NOT</option>
+                        <option value="NOT LIKE" id="">NOT</option>
                     </select>
                 </div>
 
                 <div class="{{--form-group--}}">
                     <select name="book10" id="" class="form-control-static">
                         <option value="title" id="scope_titleall1" >Title</option>
-                        <option value="creator" id="scope_creatorall1" selected>Author / creator</option>
+                        <option value="author" id="scope_authorall1" selected>Author / creator</option>
                         <option value="subject" id="scope_suball1">Subject</option>
                         <option value="series" id="scope_lsr38all1">Series</option>
                         <option value="genre" id="scope_lsr30all1">genre</option>
@@ -216,12 +216,12 @@
 
                     </select>
 
-                    <input name="bookSearch1" id="" class="form-control-static">
+                    <input name="bookSearch[]" id="" class="form-control-static">
 
                     {{--<select name="book12" id="" class="form-control-static">--}}
                         {{--<option value="and" id="" selected>AND</option>--}}
                         {{--<option value="or" id="">OR</option>--}}
-                        {{--<option value="not" id="">NOT</option>--}}
+                        {{--<option value="NOT LIKE" id="">NOT</option>--}}
                     {{--</select>--}}
                     <button class="btn btn-default form-control-static btn-primary">
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
@@ -242,7 +242,7 @@
                 <div class="{{--form-group--}}">
                     <select name="video00" id="" class="form-control-static">
                         <option value="title" id="scope_titleall1" selected>Title</option>
-                        <option value="creator" id="scope_creatorall1">Author / creator</option>
+                        <option value="author" id="scope_authorall1">Author / creator</option>
                         {{--<option value="series" id="scope_lsr38all1">Series</option>--}}
                         <option value="genre" id="scope_lsr30all1">genre</option>
                         <option value="publisher" id="scope_lsr04all1">Producer</option>
@@ -254,19 +254,19 @@
 
                     </select>
 
-                    <input name="videoSearch0" id="" class="form-control-static" required>
+                    <input name="videoSearch[]" id="" class="form-control-static" required>
 
                     <select name="video02" id="" class="form-control-static">
-                        <option value="and" id="" selected>AND</option>
-                        <option value="or" id="">OR</option>
-                        <option value="not" id="">NOT</option>
+                        <option value="contains" id="" selected>AND</option>
+                        <option value="exactPhrase" id="">OR</option>
+                        <option value="startsWith" id="">NOT</option>
                     </select>
                 </div>
 
                 <div class="{{--form-group--}}">
                     <select name="video10" id="" class="form-control-static">
                         <option value="title" id="scope_titleall1" >Title</option>
-                        <option value="creator" id="scope_creatorall1"selected>Author / creator</option>
+                        <option value="author" id="scope_authorall1"selected>Author / creator</option>
                         {{--<option value="series" id="scope_lsr38all1">Series</option>--}}
                         <option value="genre" id="scope_lsr30all1">genre</option>
                         <option value="publisher" id="scope_lsr04all1">Producer</option>
@@ -277,12 +277,12 @@
                         <option value="startsWith" id="">starts with</option>
                     </select>
 
-                    <input name="videoSearch1" id="" class="form-control-static">
+                    <input name="videoSearch[]" id="" class="form-control-static">
 
                     {{--<select name="video12" id="" class="form-control-static">--}}
                         {{--<option value="and" id="" selected>AND</option>--}}
                         {{--<option value="or" id="">OR</option>--}}
-                        {{--<option value="not" id="">NOT</option>--}}
+                        {{--<option value="NOT LIKE" id="">NOT</option>--}}
                     {{--</select>--}}
                     <button class="btn btn-default form-control-static btn-primary">
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
@@ -303,8 +303,8 @@
                 <div class="{{--form-group--}}">
                     <select name="audio00" id="" class="form-control-static ">
                         <option value="title" id="scope_titleall1" selected>Title</option>
-                        <option value="creator" id="scope_creatorall1">Author / creator</option>
-                        {{--<option value="creator" id="scope_creatorall1">Composer</option>--}}
+                        <option value="author" id="scope_authorall1">Author / creator</option>
+                        {{--<option value="author" id="scope_creatorall1">Composer</option>--}}
                         <option value="series" id="scope_lsr38all1">Album</option>
                         <option value="genre" id="scope_lsr30all1">genre</option>
                         <option value="publisher" id="scope_lsr04all1">Producer</option>
@@ -315,13 +315,13 @@
                         <option value="startsWith" id="">starts with</option>
                     </select>
 
-                    <input type="text" name="audioSearch0" id="" class="form-control-static" required>
+                    <input name="audioSearch[]" id="" class="form-control-static" required>
 
                     <select name="audio02" id="" class="form-control-static">
 
-                        <option value="and" id="" selected>AND</option>
-                        <option value="or" id="">OR</option>
-                        <option value="not" id="">NOT</option>
+                        <option value="AND" id="" selected>AND</option>
+                        <option value="OR" id="">OR</option>
+                        <option value="NOT LIKE" id="">NOT</option>
                     </select>
 
                 </div>
@@ -329,8 +329,8 @@
                 <div class="{{--form-group--}}">
                     <select name="audio10" id="" class="form-control-static ">
                         <option value="title" id="scope_titleall1">Title</option>
-                        <option value="creator" id="scope_creatorall1" selected>Author / creator</option>
-                        {{--<option value="creator" id="scope_creatorall1">Composer</option>--}}
+                        <option value="author" id="scope_authorall1" selected>Author / creator</option>
+                        {{--<option value="author" id="scope_authorall1">Composer</option>--}}
                         <option value="series" id="scope_lsr38all1">Album</option>
                         <option value="genre" id="scope_lsr30all1">genre</option>
                         <option value="publisher" id="scope_lsr04all1">Producer</option>
@@ -342,13 +342,13 @@
 
                     </select>
 
-                    <input type="text" name="audioSearch1" id="" class="form-control-static">
+                    <input name="audioSearch[]" id="" class="form-control-static">
 
                     {{--<select name="audio12" id="" class="form-control-static">--}}
 
                         {{--<option value="and" id="" selected>AND</option>--}}
                         {{--<option value="or" id="">OR</option>--}}
-                        {{--<option value="not" id="">NOT</option>--}}
+                        {{--<option value="NOT LIKE" id="">NOT</option>--}}
                     {{--</select>--}}
 
                     <button class="btn btn-default form-control-static btn-primary">
@@ -360,9 +360,9 @@
                 {{--</button>--}}
 
 
-                <input type="checkbox" name="chek[]" value="rice">
-                <input type="checkbox" name="chek[]" value="beans">
-                <input type="checkbox" name="chek[]" value="garri">
+                {{--<input type="checkbox" name="chek[]" value="rice">--}}
+                {{--<input type="checkbox" name="chek[]" value="beans">--}}
+                {{--<input type="checkbox" name="chek[]" value="garri">--}}
             </form>
 
         </div>

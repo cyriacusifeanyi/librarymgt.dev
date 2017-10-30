@@ -25,7 +25,7 @@
                 <div class="col-md-8" >
                     <form id="searchForm" action="{{url('simplesearch/')}}">
                         <div class="input-group">
-                            <input id="searchBox" type="text" maxlength="100" placeholder="L!brary Search" class="form-control " name="searchBox" >
+                            <input id="searchBox" maxlength="100" placeholder="L!brary Search" class="form-control " name="searchBox" >
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-search"></span>
                             </div>
@@ -79,59 +79,60 @@
                         {{--</div>--}}
                     {{--</div>--}}
 
+{{----}}
+{{----}}
+                    {{----}}
+                    {{--<div id="carousel-example-generic" class="carousel slide col-md-8 --}}{{--col-md-offset-8--}}{{-- col-xs-12" data-ride="carousel">--}}
+                        {{--<!-- Indicators -->--}}
+                        {{--<ol class="carousel-indicators">--}}
+                            {{--<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>--}}
+                            {{--<li data-target="#carousel-example-generic" data-slide-to="1"></li>--}}
+                            {{--<li data-target="#carousel-example-generic" data-slide-to="2"></li>--}}
+                            {{--<li data-target="#carousel-example-generic" data-slide-to="3"></li>--}}
+                        {{--</ol>--}}
 
+                        {{--<!-- Wrapper for slides -->--}}
+                        {{--<div class="carousel-inner" role="listbox">--}}
+                            {{--<div class="item active">--}}
+                                {{--<img src="assets/images/night.jpg" alt="...">--}}
+                                {{--<div class="carousel-caption">--}}
+                                    {{--...HELLO--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
 
-                    <div id="carousel-example-generic" class="carousel slide col-md-8 {{--col-md-offset-8--}} col-xs-12" data-ride="carousel">
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-                        </ol>
+                            {{--<div class="item">--}}
+                                {{--<img src="assets/images/Library-inwords_sm.gif" alt="...">--}}
+                                {{--<div class="carousel-caption">--}}
+                                    {{--...HOWDY--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
 
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                                <img src="assets/images/night.jpg" alt="...">
-                                <div class="carousel-caption">
-                                    ...HELLO
-                                </div>
-                            </div>
+                            {{--<div class="item">--}}
+                                {{--<img src="assets/images/night.jpg" alt="...">--}}
+                                {{--<div class="carousel-caption">--}}
+                                    {{--...OK--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
 
-                            <div class="item">
-                                <img src="assets/images/Library-inwords_sm.gif" alt="...">
-                                <div class="carousel-caption">
-                                    ...HOWDI
-                                </div>
-                            </div>
+                            {{--<div class="item">--}}
+                                {{--<img src="assets/images/night.jpg" alt="...">--}}
+                                {{--<div class="carousel-caption">--}}
+                                    {{--...hmmm--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--...Dedicated to serve--}}
+                        {{--</div>--}}
 
-                            <div class="item">
-                                <img src="assets/images/night.jpg" alt="...">
-                                <div class="carousel-caption">
-                                    ...OK
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <img src="assets/images/night.jpg" alt="...">
-                                <div class="carousel-caption">
-                                    ...hmmm
-                                </div>
-                            </div>
-                            ...Dedicated to serve
-                        </div>
-
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
+                        {{--<!-- Controls -->--}}
+                        {{--<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">--}}
+                            {{--<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>--}}
+                            {{--<span class="sr-only">Previous</span>--}}
+                        {{--</a>--}}
+                        {{--<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">--}}
+                            {{--<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>--}}
+                            {{--<span class="sr-only">Next</span>--}}
+                        {{--</a>--}}
+                    {{--</div>--}}
 
 
 
@@ -144,13 +145,13 @@
                         {{--</ul>--}}
                     {{--</div>--}}
 
-                    <div class="col-md-4">
-                        <ul class="list-group">
-                            <li class="list-group-item">E-Resource</li>
-                            <li class="list-group-item">Staff Directory</li>
-                            <li class="list-group-item">Ask Librarian</li>
-                        </ul>
-                    </div>
+                    {{--<div class="col-md-4">--}}
+                        {{--<ul class="list-group">--}}
+                            {{--<li class="list-group-item">E-Resource</li>--}}
+                            {{--<li class="list-group-item">Staff Directory</li>--}}
+                            {{--<li class="list-group-item">Ask Librarian</li>--}}
+                        {{--</ul>--}}
+                    {{--</div>--}}
                 </div>
             </div>
             {{--end of phase 3--}}

@@ -61,16 +61,40 @@
                     </ul>
                 </li>
 
-                {{--User account--}}
-                {{--if no user exist--}}
-                {{--<li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Sign in</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Sign in</a></li>
-                        <li><a href="#">Register an account</a></li>
-                    </ul>
-                </li>--}}
-                {{--if user exist--}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> My name {{--{{$user->name}}--}}</a>
                     <ul class="dropdown-menu">

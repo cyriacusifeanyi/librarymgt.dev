@@ -94,3 +94,7 @@ Route::get('signup','RegisterController@signupAuth');
 Route::get('signin','RegisterController@signinAuth');
 Route::get('signout','RegisterController@signout');
 
+//for user authentication
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

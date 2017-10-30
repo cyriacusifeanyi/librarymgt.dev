@@ -6,7 +6,6 @@
 
 @section('content')
     <div class="container " align="left" style="margin-top: 55px;min-height: 350px ">
-
         @include('include.advancesearch')
 
         <hr>
@@ -14,7 +13,12 @@
         <div class="text-center">Library users: <em>Sign in</em> to find more articles</div>
 
         <div class="col-md-12">
-            <div class="panel panel-default col-md-4">
+
+                <button type="button" class="hidden-lg hidden-md btn btn-default" data-toggle="collapse" data-target="#filter" aria-expanded="false" aria-controls="navbar">
+                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                </button>
+
+            <div id="filter" class=" panel panel-default col-md-4 collapse in {{--navbar-collapse collapse--}}" aria-expanded="true">
                 <div class="panel-heading">Show only</div>
                 <div class="panel-body">
                     <ul class="list-group">
@@ -30,7 +34,7 @@
                 <div class="panel-heading">Date</div>
                 <div class="panel-body">
                     from <input max="4" type="text" name="" id=""> To <input max="4" type="text" name="" id=""> <input type="submit"
-                                                                                                       value="Refine">
+                                                                                                                       value="Refine">
                     <input type="range" name="" id="" min="-500" max="2017">
 
 
@@ -66,38 +70,54 @@
 
 
             </div>
-            <div class="panel panel-default {{--col-xs-5 col-sm-2 col-md-2--}}">
-                <div class="nv-box">
-                    Result 1 - 30 of 88,888,888 for All location(Everything)
+            <div class="panel panel-default {{--col-xs-5 col-sm-2--}} col-md-8">
+                <div {{--class="nv-box"--}}>
+                    Result {{$searchResult->first()->id}} - {{$searchResult->count()}} of {{$searchResult/*->last()*/->count()}}{88,888,888} for All location(Everything)
+                    {{--<br>--}}
                     sorted by: relevance
                     1 2
                     3
                     4
                 </div>
+                <hr>
+                <div class="col-md-8">
+                    @forelse($searchResult as $resource)
 
-                <div>
-                    <ul>
-                        <li>aaaaaaaaaaa</li>
-                        <li>aaaaaaaaaaa</li>
-                        <li>aaaaaaaaaaa</li>
-                        <li>aaaaaaaaaaa</li>
-                    </ul>
-                </div>
+                        <img src="" width="100px" height="250px" alt="sdfgh" id="searchLoop" class="img-thumbnail">
 
-                {{--@foreach()--}}
-                <div class="col-md-8 row">
-                    <div class="col-xs-6 col-md-3">
-                        <a href="#" class="thumbnail">
-                            <img src="..." alt="...">
-                        </a>
-                    </div>
-                    <div class="col-md-5">
-                        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, eaque iure! Ab, aliquid
-                            cumque expedita harum ipsam laboriosam laborum magnam magni minima modi mollitia,
-                            perspiciatis rerum vitae voluptas voluptate, voluptatum.
+                        <a href="{{ route('preview') }}">{{$resource->title}}</a><br>
+                        <span style="color: orange">Free reading</span>&nbsp;|&nbsp;<em>Mathematics{{$resource->subject}}</em><br>
+                        {{$resource->author}}<br>
+
+                        <a href="" data-toggle="modal" data-target="#myModal" data-id="{{$resource->id}}">preview</a>
+
+
+                        <a href="#"><span class="glyphicon glyphicon-book{{$resource->type}}" aria-hidden="true"></span>
+                            Download PDF{{$resource->format}} ({{$resource->size}} Mb)</a>
+                        <hr>
+                    @empty
+                        <div class="alert alert-info">
+                            <p><h4>oops :( no Record found</h4></p>
+{{--                            <p>Your Search - <em style="font-weight: bold; font-style: normal;">{{$pageData['searchBox']}}</em>  - did not match any documents.</p>--}}
+
+                            <p>Suggestions:</p>
+
+                            <ul>
+                                <li>Make sure all words are spelled correctly.</li>
+                                <li>Try different keywords.</li>
+                                <li>Try more general keywords.</li>
+                                <li>Try fewer keywords.</li>
+                                <li>Try checking
+                                    <label class="checkbox-inline">
+                                        <input name="opt1" type="checkbox" checked disabled><em>All</em>
+                                    </label>
+                                    to broaden search space</li>
+                            </ul>
+
                         </div>
 
-                    </div>
+
+                    @endforelse
                 </div>
 
 
