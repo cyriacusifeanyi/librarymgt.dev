@@ -81,6 +81,8 @@ function changeFormMethod() {
     document.getElementById('checkAll').checked = true;
     // document.getElementById('searchBox').value = "Random Word";
 
+    // document.getElementById('searchBox').setParameter('required','required');
+
     //execution
     document.getElementById('searchForm').action="simplesearch";/*random result*//*lateri will change the action*/
 }

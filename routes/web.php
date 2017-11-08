@@ -20,7 +20,7 @@ Route::get('logs','\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 
 //root
-Route::get('/','HomeController@index')->name('home') ;
+Route::get('/','HomeController@index')->name('/') ;
 
 
 
@@ -29,7 +29,7 @@ Route::get('/','HomeController@index')->name('home') ;
 //creating, editing, deleting, fetching
 
 Route::get('create','CreateController@view')->name('create');//it needs page data in controller
-Route::post('upload','CreateController@view');
+Route::post('upload','CreateController@view')->name('upload');
 
 
 //search Routes
@@ -94,7 +94,10 @@ Route::get('signup','RegisterController@signupAuth');
 Route::get('signin','RegisterController@signinAuth');
 Route::get('signout','RegisterController@signout');
 
-//for user authentication
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//dictionary routes
+Route::get('dictionary','DictionaryController@randomWord');

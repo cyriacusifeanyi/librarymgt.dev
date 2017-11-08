@@ -61,8 +61,8 @@
                 {{--end of phase 2--}}
 
             {{--beginning of phase3--}}
-            <div {{--class="container"--}} style="padding-top: 80px" >
-                <hr class="hr-divider">
+            <div {{--class="container"--}} >
+                <hr class="hr-divider" style="margin-top: 40px">
                 <div class="row">
 
                     {{--<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">--}}
@@ -161,6 +161,8 @@
 
 
     </div>
+
+    {{--for pushing dooter down--}}
 
 
 @endsection

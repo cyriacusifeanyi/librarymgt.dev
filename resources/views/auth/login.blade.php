@@ -1,9 +1,23 @@
-@extends('layouts.app')
+@extends('master.master')
+
+
+@section('page_title')
+    <title>Library | Login</title>
+@endsection
+
+@section('page_style')
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+@endsection
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+
+            <div class="panel-heading center">
+                <img width="500" height="100" class="image panel-heading center" src="{{url('assets/images/Library-inwords_big.gif')}}" alt="Library Logo">
+            </div>
+
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
 

@@ -7,15 +7,10 @@
     {{Html::script('assets/js/script.js')}}
 @endsection
 
-
-
-
-
-
 @section('content')
-    <div class="container" {{--align="center"--}} style="margin-top: 55px">
+    <div class="container" {{--align="center"--}} style="margin-top: 55px;">
         @include('include.simplesearch')
-        <div class="col-md-12" style="background: #E9EBEE";>
+        <div class="col-md-12 " style="background: #E9EBEE";>
             <div style="font-size: 30px">Share your documents </div>
 
             <div class="center {{--maincontent--}}">
@@ -51,12 +46,10 @@
 
                 </div>
 
-
-
             </div>
             <div class="col-md-12">
 
-                <form action="">
+                <form action="{{ route('upload') }}">
                     {{ csrf_field() }}
 
 
@@ -80,22 +73,16 @@
                                 </select>
                             </div>
 
-
-
-
-
-
-
-
-
-
                         </div>
                     </div>
 
                     <div class="form-group" style="position: relative;">
 
                         {{--<input class="form-control" type="file" title="" accept=".pdf,.zip,.mp3,.mp4,.doc,.epub,.mobi,.mkv" name="user_file" >--}}
-
+                        <input type="file"
+                               accept="/,.zip,.pdf,.doc,,docx,.txt,.ppt,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-powerpoint"
+                               class="form-control" name="userfile"
+                               onchange="$('#filetitle').val($(this).val().split('\\').pop().replace(/\..+$/, '').replace(/_/g, ' '))">
                     </div>
 
                     <fieldset class="form-group-sm">
@@ -107,12 +94,12 @@
 
                         <div class="form-group-sm">
                             <label for="publisher">Publisher:</label>
-                            <input type="text" class="form-control" id="publisher">
+                            <input type="text" class="form-control" id="publisher"placeholder="Names of Publishers (in a comma separated list)">
                         </div>
 
                         <div class="form-group-sm">
                             <label for="description">Description:</label>
-                            <textarea class="form-control" id="description" placeholder="brief description of the content, which may include its use and target audience"></textarea>
+                            <textarea class="form-control" id="description" placeholder="Brief description of the content, which may include its use and target audience"></textarea>
                         </div>
 
                         <div class="form-group-sm">
@@ -122,7 +109,7 @@
                                 <option value="2">Primary School</option>
                                 <option value="3">High School</option>
                                 <option value="4">University</option>
-                                <option value="5">Advance</option>
+                                {{--<option value="5">Advance</option>--}}
 
                             </select>
 
@@ -166,67 +153,9 @@
                     @include('include.errors')
                 </form>
 
-
-
-
-
-
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            {{--<input type="file"--}}
-            {{--accept="/,.zip,.pdf,.doc,,docx,.txt,.ppt,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-powerpoint"--}}
-            {{--class="form-control" name="userfile"--}}
-            {{--onchange="$('#filetitle').val($(this).val().split('\\').pop().replace(/\..+$/, '').replace(/_/g, ' '))">--}}
-
 
 
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-    {{--
-
-        <form action="{{url('upload')}}" method="post">
-            {{ csrf_field() }}
-
-
-
-        </form>
-    --}}
-
-
-
-
-
-
-
-
-
-
-
 @endsection
