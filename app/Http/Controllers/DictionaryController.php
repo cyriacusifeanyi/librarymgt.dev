@@ -30,6 +30,15 @@ class DictionaryController extends Controller
         return view('pages.dictionary',compact('pageData'));
     }
 
+    public function lookup(){
+
+
+
+
+
+        return view('pages.dictionary',compact('pageData'));
+    }
+
 
     //word of the day
 

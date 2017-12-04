@@ -1,3 +1,27 @@
+{{--TO-DOs--}}
+{{--at evening time recomend theme for the eyes which would change with javascript and store brightness state in database until night is over--}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 <head>

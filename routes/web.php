@@ -101,3 +101,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //dictionary routes
 Route::get('dictionary','DictionaryController@randomWord');
+Route::get('lookup','DictionaryController@lookup')->name('lookup');
