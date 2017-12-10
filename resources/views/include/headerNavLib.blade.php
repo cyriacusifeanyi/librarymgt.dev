@@ -64,13 +64,7 @@
                 <!-- Authentication Links -->
                 @if (Auth::guest())
 
-                    @if(url() == route('login'))
-                        <?php
-                            echo url();
-                            ?>
-                        fcdjvkj kfwkaclvmk szvzkz
 
-                        @endif
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Welcome<span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -83,13 +77,19 @@
 
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }}<span class="caret"></span>
+                            <span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name}}<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="#">History</a></li>
                             <li><a href="{{url('favourite/')}}">Favourite</a></li>
-                            <li><a href="{{--{{url('create')}}--}}{{ route('create') }}"><span style="color: orange">&nbsp;<i class="glyphicon glyphicon-upload"></i></span> Upload</a></li>
-                            <li><a href="#{{--evernote.com--}}">Notepad <span style="color: orange">&nbsp;<i class="glyphicon glyphicon-new-window"></i></span></a></li>
+                            <li><a href="{{--{{url('create')}}--}}{{ route('create') }}">{{--<span style="color: orange">&nbsp;<i class="glyphicon glyphicon-upload"></i></span>--}} Upload</a></li>
+                            {{--<li><a href="#--}}{{--evernote.com--}}{{--">Notepad <span style="color: orange">&nbsp;<i class="glyphicon glyphicon-new-window"></i></span></a></li>--}}
+
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Extras</li>
+                            <li ><a href="{{url('admin/profile')}}">Dictionaries</a></li>
+                            <li ><a href="{{url('admin/profile')}}">Past Questions</a></li>
+
                             <li role="separator" class="divider"></li>
                             {{--<li class="dropdown-header">Account Setup</li>--}}
                             <li ><a href="{{url('admin/profile')}}">Account Settings</a></li>
@@ -103,53 +103,9 @@
                     </li>
 
                 @endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                {{--<li class="dropdown">--}}
-                {{--<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> My name --}}{{--{{$user->name}}--}}{{--</a>--}}
-                {{--<ul class="dropdown-menu">--}}
-                {{--<li><a href="#">History</a></li>--}}
-                {{--<li><a href="{{url('favourite/')}}">Favourite</a></li>--}}
-                {{--<li><a href="--}}{{--{{url('create')}}--}}{{--{{ route('create') }}"><span style="color: orange">&nbsp;<i class="glyphicon glyphicon-upload"></i></span> Upload</a></li>--}}
-                {{--<li><a href="#--}}{{--evernote.com--}}{{--">Notepad <span style="color: orange">&nbsp;<i class="glyphicon glyphicon-new-window"></i></span></a></li>--}}
-                {{--<li role="separator" class="divider"></li>--}}
-                {{--<li class="dropdown-header">External links</li>--}}
-                {{--<li ><a href="{{url('admin/profile')}}">Account Settings</a></li>--}}
-                {{--<li ><a href="{{url('signout')}}">Sign out </a></li>--}}
-                {{--</ul>--}}
-                {{--</li>--}}
-                {{--end User account--}}
-
-
             </ul>
         </div><!--/.nav-collapse -->
+
+
     </div>
 </nav>
