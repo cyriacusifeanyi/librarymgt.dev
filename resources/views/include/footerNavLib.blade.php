@@ -1,6 +1,6 @@
 <div class="container text-muted">
     <div class="col-md-9">
-        © L<span style="color: orange">!</span>brary 2015. All Rights Reserved.
+        © L<em><span style="color: orange">!</span></em>brary 2015. All Rights Reserved.
     </div>
         <div class="col-md-3">
             <nav {{--id="sub-menu"--}} >

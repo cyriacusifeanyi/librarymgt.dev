@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{--{{url('/')}}--}}{{ route('home') }}">
-                L<span style="color: orange">!</span>brary @include('include.doodle'){{--due to destractions--}}
+                L<em><span style="color: orange">!</span></em>brary @include('include.doodle'){{--due to destractions--}}
             </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -46,16 +46,17 @@
                     <ul class="dropdown-menu">
                         <li><a href="#{{--about/#mission--}}">Mission & Governance</a></li>
                         <li><a href="#{{--news--}}">News & Event</a></li>
-                        <li><a href="#{{--donate--}}">Giving to the L<span style="color: orange">!</span>brary</a></li>
+                        <li><a href="#{{--donate--}}">Giving to the L<em><span style="color: orange">!</span></em>brary</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Help <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{url('help')}}">Find Answers</a></li>
+                        <li><a href="{{url('faq')}}">FAQ's</a></li>
                         <li><a href="{{url('contact')}}">Contact Us</a></li>
                         <li>
-                            <a href="{{url('useoflibrary')}}">Use of L<span style="color: orange">!</span>brary 101</a>
+                            <a href="{{url('useoflibrary')}}">Use of L<em><span style="color: orange">!</span></em>brary 101</a>
                         </li>
 
                     </ul>
@@ -63,16 +64,8 @@
 
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-
-                    @if(url() == route('login'))
-                        <?php
-                            echo url();
-                            ?>
-                        fcdjvkj kfwkaclvmk szvzkz
-
-                        @endif
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Welcome<span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>Welcome<em><span style="color: orange">!</span></em></b><span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
@@ -90,6 +83,8 @@
                             <li><a href="{{url('favourite/')}}">Favourite</a></li>
                             <li><a href="{{--{{url('create')}}--}}{{ route('create') }}"><span style="color: orange">&nbsp;<i class="glyphicon glyphicon-upload"></i></span> Upload</a></li>
                             <li><a href="#{{--evernote.com--}}">Notepad <span style="color: orange">&nbsp;<i class="glyphicon glyphicon-new-window"></i></span></a></li>
+                            <li><a href="{{url('lookup')}}">Dictionaries <span {{--style="color: orange"--}}>&nbsp;<i class="glyphicon glyphicon-book"></i></span></a></li>
+
                             <li role="separator" class="divider"></li>
                             {{--<li class="dropdown-header">Account Setup</li>--}}
                             <li ><a href="{{url('admin/profile')}}">Account Settings</a></li>

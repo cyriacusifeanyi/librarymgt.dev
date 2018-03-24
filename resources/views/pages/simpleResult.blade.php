@@ -70,7 +70,7 @@
             </div>
 
             <div class="col-md-8 col-sm-8 col-xs-12 {{--visible-lg-block visible-md-block visible-sm-block visible-xs-block--}} ">
-                sorted by relevance&nbsp;|&nbsp;<a href="">date</a>
+                sorted by relevance&nbsp;|&nbsp;<a href="">date</a>|&nbsp;<a href="">????</a>
                 <hr>
 
 
@@ -85,18 +85,18 @@
 
                 {{--                {{$video2[0]->title}}--}}
                 @forelse($resources as $resource)
-
-                    <img src="" width="100px" height="250px" alt="sdfgh" id="searchLoop" class="img-thumbnail">
+                    {{asset('storage/'.$resource->url)}}
+                    <img src="{{asset('storage/'.$resource->url)}}" width="100px" height="250px" alt="sdfgh" id="searchLoop" class="img-thumbnail">
 
                     <a href="{{ route('preview') }}">{{$resource->title}}</a><br>
-                    <span style="color: orange">Free reading</span>&nbsp;|&nbsp;<em>{{--Mathematics--}}{{$resource->subject}}</em><br>
+                    <span style="color: orange">Free reading</span>&nbsp;|&nbsp;<em>{{--Mathematics--}}{{$resource->category}}</em><br>
                     {{$resource->author}}<br>
 
                     <a href="{{$resource->id}}" data-toggle="modal" data-target="#myModal" data-id="{{--{{$resource->id}}--}}">preview</a>
 
 
                     <a href="#"><span class="glyphicon glyphicon-book{{$resource->type}}" aria-hidden="true"></span>
-                        Download PDF{{$resource->format}} ({{$resource->size}} Mb)</a>
+                        {{$resource->extension}} ({{$resource->size}}b)</a>
                     <hr>
 
                 @empty

@@ -16,7 +16,7 @@
         </li>
 
         <li class="nav-item navbar-right">
-            <a target="_blank" href="{{--Search tips--}}" >
+            <a target="_blank" href="{{url('useoflibrary')}}" >
                 <span style="color:orange" class=" glyphicon glyphicon-info-sign" aria-hidden="true"></span> Search tips
             </a>
         </li>

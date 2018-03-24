@@ -13,22 +13,31 @@ class CreateBooksTable extends Migration
      */
     public function up()
     {
-        Schema::create('books', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('author');
-            $table->string('title');
-            $table->text('description');
-            $table->string('series');
-            $table->string('genre');
-            $table->string('subject');
-            $table->string('country');/*country of creation*/
-            $table->string('publisher');
-            $table->string('ISBN')->unique()->nullable();
-            $table->string('ISSN')->unique()->nullable();
-            $table->string('size');
-            $table->integer('year');/*year of creation*/
-            $table->timestamps();
-        });
+//        Schema::create('books', function (Blueprint $table) {
+//            $table->increments('id');
+//            $table->string('author');
+//            $table->string('title');
+//            $table->text('description');
+//            $table->string('series');
+//            $table->string('genre');
+//            $table->string('subject');
+//            $table->string('country');/*country of creation*/
+//            $table->string('publisher');
+//            $table->string('ISBN')->unique()->nullable();
+//            $table->string('ISSN')->unique()->nullable();
+//            $table->string('size');
+//            $table->integer('year');/*year of creation*/
+//            $table->timestamps();
+//
+//
+//
+//
+////            $table->string('url');//i can edit few things to view thumb,file and other associating files$table->string('size');
+////            $table->string('publisher')->nullable();//book
+////            $table->string('category');//Dewine decimal classification can determine subject and tags
+////            $table->string('audience');//jss1,jss2,jss3,..advance leaners,//browse educational age distrubution or division
+//
+//        });
     }
 
     /**

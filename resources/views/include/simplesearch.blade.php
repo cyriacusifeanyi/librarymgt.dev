@@ -16,16 +16,16 @@
                 <input name="opt1" type="checkbox" onclick="allCheck()" id="checkAll" {{/*opt1*/ $pageData['opt1']}} {{--checked--}}>All
             </label>
             <label class="checkbox-inline">
-                <input name="opt2" type="checkbox" onclick="checkControl(event)" id="checkBooks" {{/*opt2*/ $pageData['opt2']}} >Books
+                <input name="opt2" type="checkbox" onclick="checkControl()" id="checkBooks" {{/*opt2*/ $pageData['opt2']}} >Books
             </label>
             <label class="checkbox-inline">
-                <input name="opt3" type="checkbox" onclick="checkControl(event)" id="checkVideo" {{/*opt3*/ $pageData['opt3']}} >Video
+                <input name="opt3" type="checkbox" onclick="checkControl()" id="checkVideo" {{/*opt3*/ $pageData['opt3']}} >Video
             </label>
             <label class="checkbox-inline">
-                <input name="opt4" type="checkbox" onclick="checkControl(event)" id="checkAudio" {{/*opt4*/ $pageData['opt4']}} >Audio
+                <input name="opt4" type="checkbox" onclick="checkControl()" id="checkAudio" {{/*opt4*/ $pageData['opt4']}} >Audio
             </label>
             <label class="checkbox-inline">
-                <input name="opt5" type="checkbox" onclick="checkControl(event)" id="checkOthers" {{/*opt5*/ $pageData['opt5']}}> Others
+                <input name="opt5" type="checkbox" onclick="checkControl()" id="checkOthers" {{/*opt5*/ $pageData['opt5']}}> Others
             </label>
 
         </div>

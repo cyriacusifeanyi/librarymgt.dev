@@ -1,3 +1,6 @@
+{{--try to prevent posting outside this page like searching or leaving page--}}
+
+
 @extends('master.master')
 
 @section('page_title')
@@ -6,6 +9,25 @@
 @section('page_style')
     {{Html::script('assets/js/script.js')}}
 @endsection
+
+
+    {{--{{asset('storage/file.txt')}}--}}
+    {{--<a href="{{asset('storage/file.txt')}}">click me !!</a>--}}
+    {{--{{Storage::disk('local')->put('newFile.txt','hello:')}}<br />--}}
+    {{--{{Storage::disk('local')->append('newFile.txt',	'Cyriacus.Ifeanyi.Valentine;')}}--}}
+    {{--<br>--}}
+    {{--$exists	=	Storage::disk('s3')->exists('file.jpg');--}}
+    {{--if file.jpg exist it returns 1--}}
+    {{--{{Storage::disk('local')->exists('newFile.txt')}}--}}
+    {{--{{$contents	=	Storage::get('newFile.txt')}}--}}
+    {{--{{Storage::url('newFile.txt')}}--}}
+    {{--$size	=	Storage::size('file1.jpg');--}}
+    {{--<br>--}}
+    {{--<b>the size of newFile.txt is =  {{Storage::size('newFile.txt')}}</b><br>--}}
+    {{--<b>the last Modified date of newFile.txt is =  {{Storage::lastModified('newFile.txt')}}</b>--}}
+    {{--<br><br>--}}
+
+
 
 @section('content')
     <div class="container" {{--align="center"--}} style="margin-top: 55px;">
@@ -49,23 +71,25 @@
             </div>
             <div class="col-md-12">
 
-                <form action="{{ route('upload') }}">
+                <form id="uploadForm" {{--onLoad="uploadForm()"--}} method="post" action="{{ route('upload') }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
 
 
                     <div class="form-group">
-                        <label for="body">Title:</label>
-                        <input class="form-control" id="body" type="text">
+                        <label for="fileTitle">Title:</label>
+                        <input class="form-control" name="fileTitle" id="fileTitle" type="text" autofocus>
                         <span class="glyphicon glyphicon-info-sign"></span> Please enter an exact title for the file
                         <div>
-                            <label for="body">File type:</label><select style="margin-top: 5px;">
-                                <option value="textFile">Text</option>
-                                <option value="audioFile">Audio</option>
-                                <option value="videoFile">Video</option>
-                                <option value="otherFile">Others</option>
+                            <label for="fileType">File type:</label>
+                            <select id="fileType" name="fileType" style="margin-top: 5px;">
+                                <option value="text">Text</option>
+                                <option value="audio">Audio</option>
+                                <option value="video">Video</option>
+                                <option value="other">Others</option>
                             </select>
                             <div style="display: inline-block">
-                                <label for="body">Category:</label><select style="margin-top: 5px;">
+                                <label for="category">Category:</label>
+                                <select id="category" name="fileCategory" style="margin-top: 5px;">
                                     <option value="textFile">TextBook</option>
                                     <option value="audioFile">Past-Question</option>
                                     <option value="videoFile">Sheet music</option>
@@ -76,30 +100,49 @@
                         </div>
                     </div>
 
-                    <div class="form-group" style="position: relative;">
 
-                        {{--<input class="form-control" type="file" title="" accept=".pdf,.zip,.mp3,.mp4,.doc,.epub,.mobi,.mkv" name="user_file" >--}}
-                        <input type="file"
+                    <div class="form-group" style="position: relative;">
+                        {{--<div class="form-group-sm ">--}}
+                            <label>Upload style:</label>
+
+                            <label class="radio-inline">
+                                <input id="localsource" onclick="localSource()" name="fileSource" value="localsource" type="radio" checked>Select from local
+                            </label>
+
+                            <label class="radio-inline">
+                                <input id="urlsource" onclick="urlSource()" name="fileSource" value="urlsource" type="radio">Enter file's URL
+                            </label>
+
+
+
+
+
+                        <input  style="display: inline-block" name="userFile" type="file" id="localSourceInput"
                                accept="/,.zip,.pdf,.doc,,docx,.txt,.ppt,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-powerpoint"
-                               class="form-control" name="userfile"
-                               onchange="$('#filetitle').val($(this).val().split('\\').pop().replace(/\..+$/, '').replace(/_/g, ' '))">
+                               class="form-control"
+                               onchange="$('#fileTitle').val($(this).val().split('\\').pop().replace(/\..+$/, '').replace(/_/g, ' '))">
+
+
+                        <input style="display: none" type="url" id="urlSourceInput" class="form-control"  placeholder="Enter the file's URL" >
+                        {{--for url make title compulsory--}}
+
                     </div>
 
                     <fieldset class="form-group-sm">
                         <legend>File properties:</legend>
                         <div class="form-group-sm">
                             <label for="author">Author:</label>
-                            <input type="text" class="form-control" id="author" placeholder="Author's names seprated by a comma">
+                            <input type="text" class="form-control" name="author" id="author" placeholder="Author's names separated by a comma">
                         </div>
 
                         <div class="form-group-sm">
                             <label for="publisher">Publisher:</label>
-                            <input type="text" class="form-control" id="publisher"placeholder="Names of Publishers (in a comma separated list)">
+                            <input type="text" class="form-control" name="publisher" id="publisher" placeholder="Name of Publisher">
                         </div>
 
                         <div class="form-group-sm">
                             <label for="description">Description:</label>
-                            <textarea class="form-control" id="description" placeholder="Brief description of the content, which may include its use and target audience"></textarea>
+                            <textarea class="form-control" name="description" id="description" placeholder="Brief description of the content, which may include its use and target audience"></textarea>
                         </div>
 
                         <div class="form-group-sm">
@@ -119,30 +162,22 @@
                             <label for="support">Disability support:</label>
 
                             <label for="yes" class="radio-inline">
-                                <input onclick="disabilityYes()" name="disability" value="disYes" type="radio">Yes
+                                <input onclick="disabilityYes()" name="disability" value="Yes" type="radio">Yes
                             </label>
                             <input id="disYes" style="display: none" class="form-inline" type="text" placeholder="if yes elaborate">
 
                             <label class="radio-inline">
-                                <input onclick="disabilityNo()" name="disability" value="disNo" type="radio">no
+                                <input onclick="disabilityNo()"  name="disability" value="No" type="radio" checked>no
                             </label>
 
-
                         </div>
 
-
-
-
-
-                        <div class="form-group">
-                            <label for="body">Tags:</label>
-                            <input class="form-control" id="body" type="text" placeholder="Chemistry, Law, Hip hip, Modern art,..">
-                        </div>
+                        {{--<div class="form-group">--}}
+                            {{--<label for="tags">Tags:</label>--}}
+                            {{--<input id="tags" name="tags" class="form-control" type="text" placeholder="Chemistry, Law, Hip hip, Modern art,..">--}}
+                        {{--</div>--}}
 
                         By uploading, you agree to our <a href="{{url('termsandconditions/#upload')}}">terms</a>.
-
-
-
 
                     </fieldset>
                     <div class="form-group">

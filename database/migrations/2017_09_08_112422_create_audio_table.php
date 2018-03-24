@@ -13,19 +13,19 @@ class CreateAudioTable extends Migration
      */
     public function up()
     {
-        Schema::create('audio', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('author');
-            $table->string('title');
-            $table->text('description');
-            $table->string('album');
-            $table->integer('track');
-            $table->string('genre');
-            $table->string('producer');
-            $table->string('size');
-            $table->integer('year');/*year of creation*/
-            $table->timestamps();
-        });
+//        Schema::create('audio', function (Blueprint $table) {
+//            $table->increments('id');
+//            $table->string('author');
+//            $table->string('title');
+//            $table->text('description');
+//            $table->string('album');
+//            $table->integer('track');
+//            $table->string('genre');
+//            $table->string('producer');
+//            $table->string('size');
+//            $table->integer('year');/*year of creation*/
+//            $table->timestamps();
+//        });
     }
 
     /**

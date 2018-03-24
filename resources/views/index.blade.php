@@ -53,7 +53,7 @@
                         </div>
 
                         <a {{--target="_blank"--}} href="{{url('advancesearch')}}">Advance Search<span style="color: orange">&nbsp;<i class="glyphicon glyphicon-new-window"></i></span></a> |
-                        <a href="{{url('useoflibrary')}}">Use of L<span style="color: orange">!</span>brary 101</a>
+                        <a href="{{url('useoflibrary')}}">Use of L<em><span style="color: orange">!</span></em>brary 101</a>
                     </form>
                 </div>
                 <div class="col-md-2" ></div>

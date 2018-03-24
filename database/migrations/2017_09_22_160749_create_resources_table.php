@@ -16,42 +16,30 @@ class CreateResourcesTable extends Migration
         Schema::create('resources', function (Blueprint $table) {
             $table->increments('id');
 
-//            general
-            $table->string('author');
             $table->string('title');
-            $table->text('description');
+            $table->string('author');//separated by comma
+
+            $table->text('description')->nullable();;
             $table->string('type');//video,audio,text/picture
 
+//laravel would acquire it at upload in controller
+            $table->string('url');//i can edit few things to view thumb,file and other associating files
+            $table->string('size')->nullable();
+            $table->string('extension')->nullable();
 
-//            $table->string('meta_type');
-//            /*magazine, sheet music, past question, Newspaper, Research, Textbook, Journals, etc audio-book literature*/
-            $table->string('genre')->nullable();;//not nullable for music and video file
-//            $table->string('category');
-//            $table->string('audience');jss1,jss2,jss3,..advance leaners,
-//
-            $table->string('subject');
-            $table->string('size')->nullable();;
-            $table->string('publisher')->nullable();;//books
-            $table->string('producer')->nullable();;//not nullable to music and videos
+            $table->string('publisher')->nullable();//books
+            $table->string('producer')->nullable();//not nullable to music and videos
 
-//            $table->smallInteger('year');/*year of creation*/
-//            $table->string('country');/*country of creation*/ /*General*//*nulable*/
+            $table->string('category');//Dewine decimal classification can determine subject and tags
+            $table->string('audience');//jss1,jss2,jss3,..advance leaners,//browse educational age distrubution or division
 
-            $table->string('url');
-//
-//            //            books
             $table->string('ISBN')->unique()->nullable();//books
             $table->string('ISSN')->unique()->nullable();//books
-////            audio
-            $table->string('album')->nullable();;//for audio only
 
-//            $table->integer('track');
-////            Video
-//            $table->string('series');//for video
-//            $table->string('episode');
-//
-
+            $table->string('disability');
+            $table->string('disabilityNote')->nullable();
             $table->timestamps();
+
         });
     }
 

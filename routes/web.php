@@ -13,15 +13,10 @@
 
 use App\Test;
 
-
-
 Route::get('logs','\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-
-
 
 //root
 Route::get('/','HomeController@index')->name('/') ;
-
 
 
 
@@ -29,24 +24,14 @@ Route::get('/','HomeController@index')->name('/') ;
 //creating, editing, deleting, fetching
 
 Route::get('create','CreateController@view')->name('create');//it needs page data in controller
-Route::post('upload','CreateController@view')->name('upload');
-
+Route::post('upload','CreateController@upload')->name('upload');
+//Route::post('update','CreateController@upload')->name('update');
+//Route::post('delete','CreateController@upload')->name('delete');
 
 //search Routes
 Route::get('simplesearch','SearchController@simpleSearch') ;/*currently down for the below testing*/
 Route::get('advancesearch','SearchController@advanceSearch') ;
 Route::get('advanceresult','SearchController@advanceResult') ;
-
-
-//expermenting on search
-//Route::get('simplesearch',function(){
-//
-//    $videos = \App\Video::all();
-//
-//    return view('pages.testing.result',compact('videos'));
-//});
-
-
 
 
 //Item display
@@ -100,5 +85,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //dictionary routes
-Route::get('dictionary','DictionaryController@randomWord');
-Route::get('lookup','DictionaryController@lookup')->name('lookup');
+Route::get('lookup','DictionaryController@randomWord')->name('lookup');
+Route::post('lookup','DictionaryController@lookup');
+
+
+//learning file upload
+Route::get('file','DictArtController@showUploadForm')->name('upload.file');
+Route::post('file','DictArtController@storeFile');
+
+
+
+
+
+
+
+

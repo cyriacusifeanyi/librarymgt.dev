@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTestsTable extends Migration
+class CreateDictArtsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateTestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tests', function (Blueprint $table) {
+        Schema::create('dict_arts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->text('body');
+            $table->string('name');
+            $table->string('size');
+
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateTestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('test');
+        Schema::dropIfExists('dict_arts');
     }
 }

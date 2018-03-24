@@ -35,6 +35,8 @@
 
 <!-- Bootstrap -->
 {{Html::style('assets/css/bootstrap.min.css')}}
+    {{--font awesome--}}
+{{Html::style('assets/css/font-awesome.css')}}
 {{Html::style('assets/css/style.css')}}
 
 
@@ -60,12 +62,6 @@
     @yield('content')
 
 
-
-
-
-
-
-
 </div>
 {{--if login reset register ---> navbar-fixed---}}
 {{--@yield('footer')--}}
@@ -74,13 +70,13 @@
 
 {{----}}
 
-@if({{--Request::fullUrlIs(route('//')) ||Request::fullUrlIs(route('home')) ||--}}Request::fullUrlIs(route('login')) || Request::fullUrlIs(route('password.request'))|| Request::fullUrlIs(route('register')))
-    <footer  class="footer navbar-fixed-bottom">
+@if(Request::fullUrlIs(route('login')) || Request::fullUrlIs(route('password.request'))|| Request::fullUrlIs(route('register')))
+    <footer class="footer navbar-fixed-bottom">
         @include('include.footerNavLib')
         {{--        @include('include.footerNavRc')--}}
     </footer>
 @else
-    <footer  class="footer">
+    <footer class="footer">
         @include('include.footerNavLib')
         {{--        @include('include.footerNavRc')--}}
     </footer>
