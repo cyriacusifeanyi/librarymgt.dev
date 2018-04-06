@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="container " align="left" style="margin-top: 55px;min-height: 350px ">
-        @include('include.advancesearch')
+        @include('include.advanceSearch')
 
         <hr>
 
@@ -98,7 +98,7 @@
                     @empty
                         <div class="alert alert-info">
                             <p><h4>oops :( no Record found</h4></p>
-{{--                            <p>Your Search - <em style="font-weight: bold; font-style: normal;">{{$pageData['searchBox']}}</em>  - did not match any documents.</p>--}}
+{{--                            <p>Your Search - <em style="font-weight: bold; font-style: normal;">1{{$pageData['searchBox']}}</em>  - did not match any documents.</p>--}}
 
                             <p>Suggestions:</p>
 

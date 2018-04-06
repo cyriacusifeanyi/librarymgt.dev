@@ -66,10 +66,10 @@ class Resource extends Model
                     return $query->where('type','book');
                     break;
                 case '01001':
-                    return $query->where('type','book')->orWhere('type','others');
+                    return $query->where('type','book')->orWhere('9=072+9','others');
                     break;
                 case '01010':
-                    return $query->where('type','book')->orWhere('type','music');
+                    return $query->where('type','book')->orWhere ('type','music');
                     break;
                 case '01011':
                     return $query->where('type','book')->orWhere('type','music')->orWhere('type','others');
@@ -93,188 +93,72 @@ class Resource extends Model
 //    then add if else that test with the values of the check box
     }
 //
-//    public function scopeAdvanceSearchResource($query, $pageData)
-//    {
-//
-//        $pageData->id;
-//        $condition1 = $pageData->all01;
-//        $condition2 = $pageData->all11;
-//
-//        if ($pageData->id == 'all'){
-//            $condition1 = $pageData->all01;
-//            $condition2 = $pageData->all11;
-//
-//            if ($pageData->allSearch1 == null){
-//
-//                if ($pageData->all01 ==)
-//                return $query->where('type','book')->orWhere('type','video')->orWhere('type','music')->orWhere('type','others');
-//
-//            }elseif ($pageData->allSearch2 == null){
-//
-//            }elseif ($pageData->allSearch3 == null){
-//
-//            }
-//
-//            /*->where('title','like',"%$searchBox%")*/
-//            $resources = $this::advanceQuery($condition1,$condition2,$pageData)->get();
-////                contains,exactPhrase,startsWith
-////                and,or,not
-//
-//        }
-//        elseif ($pageData->id == 'book'){
-//            $condition1 = $pageData->book01;
-//            $condition2 = $pageData->book11;
-//
-//            $resources = $this::advanceQuery($condition1,$condition2,$pageData)->where('type','book')->get();
-//
-//        }
-//        elseif ($pageData->id == 'video'){
-//            $condition1 = $pageData->all01;
-//            $condition2 = $pageData->all11;
-//
-//            $resources = $this::advanceQuery($condition1,$condition2,$pageData)->where('type','video')->get();
-//
-//        }
-//        elseif ($pageData->id == 'audio'){
-//            $condition1 = $pageData->all01;
-//            $condition2 = $pageData->all11;
-//
-//            $resources = $this::advanceQuery($condition1,$condition2,$pageData)->where('type','audio')->get();
-//
-//        }
-////        else{
-//////            return 'error just occurred';
-////        }
-//
-//
-//    }
-//
-//    public function advanceQuery($condition1, $condition2,$condition3, $condition4,$condition5, $condition6,$condition7,
-//$condition8,$condition9, $condition10,$condition11, $condition12,$condition13, $condition14,
-//$condition15, $condition16, $pageData){
-//
-//if ($condition1 == 'contains')/**/{
-////                contains,exactPhrase,startsWith
-////                and,or,not
-//return $query->where('*', 'like' ,"%.$pageData->allSearch0.%");
-//
-//}
-//elseif($condition1 == 'contains' && $condition2 == 'or'){
-//
-//            return $query->where('*', 'like' ,"%.$pageData->allSearch0.%")->orWhere('type','video');
-//
-//        }
-//        elseif($condition1 == 'contains' && $condition2 == 'not'){
-//
-//
-//
-//}
-//        elseif($condition1 == 'exactPhrase' && $condition2 == 'and'){
-//
-//
-//
-//}
-//        elseif($condition1 == 'exactPhrase' && $condition2 == 'or'){
-//
-//
-//
-//}
-//        elseif($condition1 == 'exactPhrase' && $condition2 == 'not'){
-//
-//
-//
-//}
-//        elseif($condition1 == 'startsWith' && $condition2 == 'and'){
-//
-//
-//
-//}
-//        elseif($condition1 == 'startsWith' && $condition2 == 'or'){
-//
-//
-//
-//}
-//        elseif($condition1 == 'startsWith' && $condition2 == 'not'){
-//
-//
-//
-//}
-//
-//
-//    }
-//
-//
-//
+    public function scopeAdvanceSearchResource($query, $data)
+    {
+//        dd($data['id']);
+        switch ($data['id'])
+        {
+            case 'all':
+                $query->where('type','all');
+                break;
+            case 'books':
+                $query->where('type','books');
+                break;
+            case 'video':
+                $query->where('type','video');
+                break;
+            case 'audio':
+                $query->where('type','audio');
+                break;
+            default:
+                $query->where('type','all');
+                break;
+        }
 
+//        $query->and()
+        $counter = 0;
+        foreach ($data['prepositions']as $preposition)
+        {
+            switch ($preposition)
+            {
+                case 'contains':
+                    if ((isset($data['conjunctions'][$counter]) && $data['conjunctions'][$counter] == 'or') ||count($data['prepositions']))
+                    {
+                        $query->orwhere($data['properties'][$counter],'like','%'.$data['searchTexts'][$counter].'%');break;
+                    }
+                    $query->where($data['properties'][$counter],'like','%'.$data['searchTexts'][$counter].'%');break;
 
+                case 'exactPhrase':
+                    if ((isset($data['conjunctions'][$counter]) && $data['conjunctions'][$counter] == 'or') ||count($data['prepositions']))
+                    {
+                        $query->orwhere($data['properties'][$counter],$data['searchTexts'][$counter]);break;
+                    }
+                    $query->where($data['properties'][$counter],$data['searchTexts'][$counter]);break;
+                case 'startsWith':
+                    if ((isset($data['conjunctions'][$counter]) && $data['conjunctions'][$counter] == 'or') ||count($data['prepositions']))
+                    {
+                        $query->orwhere($data['properties'][$counter],'like',$data['searchTexts'][$counter].'%');break;
+                    }
+                    $query->where($data['properties'][$counter],'like',$data['searchTexts'][$counter].'%');break;
+                case 'notLike':
+                    if ((isset($data['conjunctions'][$counter]) && $data['conjunctions'][$counter] == 'or') ||count($data['prepositions']))
+                    {
+                        $query->orwhere($data['properties'][$counter],'not like','%'.$data['searchTexts'][$counter].'%');break;
+                    }
+                    $query->where($data['properties'][$counter],'not like','%'.$data['searchTexts'][$counter].'%');break;
+                default://i repeated the first case statement
+                    if ((isset($data['conjunctions'][$counter]) && $data['conjunctions'][$counter] == 'or') ||count($data['prepositions']))
+                    {
+                        $query->orwhere($data['properties'][$counter],'like','%'.$data['searchTexts'][$counter].'%');break;
+                    }
+                    $query->where($data['properties'][$counter],'like','%'.$data['searchTexts'][$counter].'%');break;
+            }
+            $counter++;
 
-    /*
-     *
-     *array:15 [▼
-  "all00" => "any"
-  "all01" => "contains"
-  "allSearch0" => "sss"
-  "all02" => "and"
-  "all10" => "title"
-  "all11" => "contains"
-  "allSearch1" => null
-  "all12" => "and"
-  "all20" => "creator"
-  "all21" => "contains"
-  "allSearch2" => null
-  "all22" => "and"
-  "all30" => "subject"
-  "all31" => "contains"
-  "allSearch3" => null
-]
-
-
-array:7 [▼
-  "books00" => "title"
-  "books01" => "contains"
-  "booksSearch0" => "cccc"
-  "books02" => "and"
-  "books10" => "creator"
-  "books11" => "contains"
-  "booksSearch1" => null
-]
-
-
-
-    array:7 [▼
-  "video00" => "title"
-  "video01" => "contains"
-  "videoSearch0" => "aaaa"
-  "video02" => "and"
-  "video10" => "creator"
-  "video11" => "contains"
-  "videoSearch1" => null
-]
-
-
-
-    array:7 [▼
-  "audio00" => "title"
-  "audio01" => "contains"
-  "audioSearch0" => "vvvvv"
-  "audio02" => "and"
-  "audio10" => "creator"
-  "audio11" => "contains"
-  "audioSearch1" => null
-]
-
-
-     *
-     * */
-
-
-
-
-
-
-
+        }            /*dd($query);*/
+        return $query;
+    }
 }
-
 
 
 

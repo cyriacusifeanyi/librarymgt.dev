@@ -66,7 +66,7 @@ class SearchController extends Controller
 //        $videos=Resource::SearchVideo()->where('title','like',"%$searchBox%")->get();
 
         $resources = Resource::SearchResource($optValueJoin)->where('title','like',"%$searchBox%")->orwhere('author','like',"%$searchBox%")->orwhere('description','like',"%$searchBox%")->get();
-
+//        dd($resources);
 //        $videos2=[Resource::SearchVideo()->get(),Resource::SearchText()->get(),Resource::SearchAudio()->get(), Resource::SearchOthers()->get()];
 //        return view('pages.simpleResult',compact('videos'/*,'types'*/,'pageData'));
 
@@ -75,7 +75,7 @@ class SearchController extends Controller
     }
 
     public function advanceSearch(){
-        $pageData =  [
+/*        $pageData =  [
 //        from all tab
             'all00' => "",
             'all01' => "",
@@ -131,13 +131,21 @@ class SearchController extends Controller
 //            'audio12' => "",
 
         ];//NOT REALLY NECESSARY
-        return view('pages.advance',compact('pageData'));
+        return view('pages.advance',compact('pageData'));*/
+        return view('pages.advance');
     }
 
     public function advanceResult(/*Request $request*/){
         $data=Input::all();
+        $resources = Resource::AdvanceSearchResource($data)->get();
+//        dd($resources);
 
-//        dd($data);
+//        return $resources;
+        return view('pages.advance',compact($resources));
+
+
+
+
 
 //        $id = $data['id'];
 

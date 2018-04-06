@@ -31,7 +31,7 @@ Route::post('upload','CreateController@upload')->name('upload');
 //search Routes
 Route::get('simplesearch','SearchController@simpleSearch') ;/*currently down for the below testing*/
 Route::get('advancesearch','SearchController@advanceSearch') ;
-Route::get('advanceresult','SearchController@advanceResult') ;
+Route::post('advanceresult','SearchController@advanceResult') ;
 
 
 //Item display

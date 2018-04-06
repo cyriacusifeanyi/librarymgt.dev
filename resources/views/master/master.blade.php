@@ -88,7 +88,7 @@
 {{Html::script('assets/js/jquery.min.js')}}
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 {{Html::script('assets/js/bootstrap.min.js')}}
-
+@yield('page_style')
 {{--{{Html::script('js/app.js')}}{{--for Auth--}}
 {{--or--}}
 {{--<script src="{{ asset('js/app.js') }}"></script>--}}

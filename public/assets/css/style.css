@@ -237,4 +237,7 @@ hr, p {
     margin: -15px 5px -10px auto;
 }
 
+textarea.form-control {
+    height: 183px;
 
+}

@@ -29,6 +29,7 @@
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-search"></span>
                                 </div>
+                                
                         </div>
                         <div class="form-group">
                             <label class="checkbox-inline">
