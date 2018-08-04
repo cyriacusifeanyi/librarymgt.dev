@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Library\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\DictArt;
+use Library\DictArt;
 use Illuminate\Support\Facades\Input;
 
 
