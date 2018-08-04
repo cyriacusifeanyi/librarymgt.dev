@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Library\Http\Controllers;
 
-use App\Dictionary;
+use Library\Dictionary;
 use Illuminate\Http\Request;
 
 

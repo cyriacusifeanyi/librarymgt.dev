@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Library\Http\Controllers;
 
-use App\Resource;
+use Library\Resource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
-//use App\Video;
+//use Library\Video;
 
 class SearchController extends Controller
 {
@@ -285,7 +285,7 @@ class SearchController extends Controller
 //        transferring page state to multi-dimensional array
 //        $resources = Resource::AdvanceSearchResource($pageData)->get();
 //        dd($pageData);
-//        this will visit App\Resourcesall
+//        this will visit Library\Resourcesall
 //        then get query for either all, video, music, others
 //        the it will attach additional where statement to pin point the file you are looking for
 

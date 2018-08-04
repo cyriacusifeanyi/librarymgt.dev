@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Library\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Resource;
+use Library\Resource;
 use Illuminate\Support\Facades\Input;
 use	Illuminate\Support\Facades\Storage;
 
