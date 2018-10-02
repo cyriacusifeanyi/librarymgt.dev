@@ -85,10 +85,9 @@
 
                 {{--                {{$video2[0]->title}}--}}
                 @forelse($resources as $resource)
-                    {{asset('storage/'.$resource->url)}}
-                    <img src="{{asset('storage/'.$resource->url)}}" width="100px" height="250px" alt="sdfgh" id="searchLoop" class="img-thumbnail">
+                    <a href="{{asset('storage/'.$resource->url)}}"><img src="{{asset('storage/'.$resource->url)}}" width="100px" height="250px" alt="sdfgh" id="searchLoop" class="img-thumbnail"></a>
 
-                    <a href="{{ route('preview') }}">{{$resource->title}}</a><br>
+                    <a href="{{url('itempreview').'/'.$resource->id}}">{{$resource->title}}</a><br>
                     <span style="color: orange">Free reading</span>&nbsp;|&nbsp;<em>{{--Mathematics--}}{{$resource->category}}</em><br>
                     {{$resource->author}}<br>
 

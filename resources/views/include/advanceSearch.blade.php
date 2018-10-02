@@ -339,6 +339,8 @@
             </form>
 
         </div>
+        @include('include.errors')
+
     </div>
     <div class="col-md-4 hidden-xs hidden-sm" style="padding-right: 0">
         <textarea class="form-control" style="float: right; width: -moz-fit-content" placeholder="Auto-generated Query" disabled name="query" id="" cols="30" rows="10"></textarea>

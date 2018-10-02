@@ -25,12 +25,28 @@
                 <a href="">ddddddd <img src="" alt="" title=""></a>
             </div>
             <div class="item-right">
-                <h2>titleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee..</h2>
-<!--                --><?//=$noPage.".".$bookYear.".".$bkSize /*inhumanReadeableFormat*/.".".$bkDownloads."Downloads"?><!----><?//if($free==true){echo "Free Resource"}else{echo "Paid Resource"}?>
-            </div>
-            <div class="item-buttom">
+                <h2>{{$resource->id}}</h2>
+                <h2>{{$resource->title}}</h2>
+                <h2>{{$resource->author}}</h2>
+                <h2>{{$resource->description}}</h2>
+                <h2>{{$resource->created_at}}</h2>
+                <h2>{{$resource->updated_at}}</h2>
+                
 
+
+
+
+
+<!--                --><?   //=$noPage.".".$bookYear.".".$bkSize /*inhumanReadeableFormat*/.".".$bkDownloads."Downloads"?><!----><?//if($free==true){echo "Free Resource"}else{echo "Paid Resource"}?>
             </div>
+            
+            
+            
+            
+            
+            
+                        <div class="item-buttom">                
+                        </div>
 
 
         </div>

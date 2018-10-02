@@ -35,7 +35,7 @@ Route::post('advanceresult','SearchController@advanceResult') ;
 
 
 //Item display
-Route::get('itempreview','MiscController@itemPreview')->name('preview');/*Miscellaneous*/
+Route::get('itempreview/{resource}','MiscController@itemPreview');/*Miscellaneous*/
 Route::get('archive','MiscController@archive')->name('archive');
 
 

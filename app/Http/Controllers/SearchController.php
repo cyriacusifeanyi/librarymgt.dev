@@ -135,7 +135,12 @@ class SearchController extends Controller
         return view('pages.advance');
     }
 
-    public function advanceResult(/*Request $request*/){
+    public function advanceResult(Request $request){
+        $this->validate(request(),[
+            // 'fileTitle'=>'required',
+            // 'fileType'=>'required',
+        ]);
+
         $data=Input::all();
         $resources = Resource::AdvanceSearchResource($data)->get();
 //        dd($resources);
